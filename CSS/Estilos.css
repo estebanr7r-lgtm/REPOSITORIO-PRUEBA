@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    background-color: rgb(110, 31, 31);
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contenedor{
+    background-color: rgb(160, 75, 75);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.class{
+}
