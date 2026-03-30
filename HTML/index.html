@@ -1,35 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicios_T</title>
+    <link rel="stylesheet" href="/CSS/Estilos.css">
 </head>
 <body>
-    <div>
+    <div id="contenedor">
         <header>
             <h1 id="Saludo_Inicial">Bienvenidos</h1>
         </header>
+
+
         <main>
-            <div class="class">Ejercicio1</div>
-            <div class="class">
+            <div class="class">Ejercicio 1                
                 <div>
-                    <label for="ID">Identificacion</label>
-                    <input type="number" id="ID" placeholder="Numero de ID">
+                    <h2>Realizar Calculo de Compras</h2>
                 </div>
-                Ejercicio2
-            
+                <div>
+                    <p>
+                        Realizaste una compra y sabes el precio del producto y su iva. 
+                        Haz un script que te calcule el precio total que vas a pagar por tu compra.
+                    </p>
+                </div>
+                
+                <div>
+                <label for="Valor_C">Ingrese el valor de su compra</label>
+                <input type="number" id="Valor_C" placeholder="Ingrese su valor">
+                
+                <label for="">Ingrese el IVA de su compra</label>
+                <input type="number" id="Valor_I" placeholder="Ingrese su valor">
+
+                <button onclick="compras()">Calcular</button>
+
+                <input type="text" id="resultado_c" placeholder="Resultado" readonly>
+                </div>
+                <div>
+                    <h3 id="resultado_texto_c"></h3>
+                </div>
             </div>
-            <div class="class">Ejercicio3</div>
-            <div class="class">Ejercicio4</div>
-            <div class="class">Ejercicio5</div>
+
+
+            <div class="class">Ejercicio 2
+                <div>
+                    <h2>Calcular Área y Perimetro</h2>
+                </div>
+            <div>
+                <p>
+                    Crea un programa que te calcule el área y 
+                    el perímetro de un cuadrado al ingresar en una variable
+                    el lado del cuadrado en cuestión.
+                </p>
+            </div>
+
+            <div>
+                <label for="Lado_C">Ingrese el lado del cuadrado</label>
+                <input type="number" id="Lado_C" placeholder="Ingrese un valor">
+                <button onclick="A_P()">Ejecutar</button>
+            </div>
+
+            <div>
+                <h3 id="Area_C">El area del cuadrado es: </h3>
+                <h3 id="Perimetro_C">El perimetro del cuadrado es: </h3>
+            </div>
+
+            </div>
+            <div class="class">Ejercicio3
+                <div>
+                    <h2>Unidades y Decenas</h2>
+                </div>
+                <div>
+                    <p>
+                        En este script debes pedir al usuario un número de dos dígitos y
+                        se debe devolver el número en unidades y decenas, o sea, 
+                        cada dígito del número. Usa solo operaciones aritméticas.
+                    </p>
+                </div>
+
+                <div>
+                    <label for="Two_numbers">Ingrese dos digitos</label>
+                    <input type="number" id="Two_numbers" placeholder="Ingrese un valor">
+                    <button onclick="U_D()">Ejecutar</button>
+                </div>
+
+                <div>
+                    <h3 id="Resultado_D">Numero de decenas: </h3>
+                    <h3 id="Resultado_U">Numero de unidades: </h3>
+                </div>
+            </div>
+
+
+            <div class="class">Ejercicio4
+                <div>
+                    <h2>Comida y Comensales</h2>
+                </div>
+                <div>
+                    <p>
+                        Una tortilla lleva 200 gramos de patatas por persona. 
+                        Por cada kilo de patatas se necesitan 5 huevos y 300 gramos de cebolla. 
+                        Escribe un script que dado el número de comensales calcule 
+                        las cantidades de ingredientes necesarios.
+                    </p>
+                </div>
+
+                <div>
+                    <label for="Numero_Comensales">Digite el numero de comensales</label>
+                    <input type="number" id="Numero_Comensales" placeholder="Ingrese un valor">
+                    <button onclick="Comensales()">Ejecutar</button>
+                </div>
+
+                <div>
+                    <h3 id="Patatas">Cantidad de Patatas: </h3>
+                    <h3 id="Huevos">Cantidad de Huevos: </h3>
+                    <h3 id="Cebolla">Cantidad de Cebolla: </h3>
+                </div>
+
+            </div>
+            <div class="class">Ejercicio5
+                <div>
+                    <h2>Adivinanza</h2>
+                </div>
+                <div>
+                    <p>
+                        Juego de adivinar entre el numero 0 y 100. 
+                        Al final, se deben mostrar el numero de intentos y los números ingresados. 
+                        El usuario tiene un máximo de 15 intentos, los cuales 
+                        se deben mostrar en cuenta regresiva. Adicional, dar pistas si el
+                        numero ingresado es mayor o menor al que se debe adivinar.
+                    </p>
+                </div>
+
+                <div>
+                    <label for="Adivinado">Ingrese el numero a adivinar</label>
+                    <input type="text" id="Adivinado" placeholder="Ingrese un valor">
+                    <button type="reset" onclick="Adivinanza()">Ejecutar</button>
+                </div>
+
+                <div>
+                    <h3 id="Acierto">El numero ingresado es: </h3>
+                    <h3 id="Cantidad_Intentos">Numero de intentos: </h3>
+                    <h3 id="Numeros_Ingresados">Numeros ingresados: </h3>
+                </div>
+
+
+            </div>
             <div class="class">Ejercicio6</div>
             <div class="class">Ejercicio7</div>
             <div class="class">Ejercicio8</div>
             <div class="class">Ejercicio9</div>
-            <div class="class">Ejercicio0</div>
+            <div class="class">Ejercicio10</div>
+            <div class="class">
+                <div>
+                    <h2>Proceso de Pago</h2>
+                </div>
+                <div>
+                    <label for="ID">Identificacion</label>
+                    <input type="number" id="ID" placeholder="Numero de ID">
+                </div>
+                <div>
+                    <label for="Esquema_Tarifario">Seleccione su tarifa</label>
+                    <select id="Esquema_Tarifario">
+                        <option value="20000" selected>Básico - $20.000</option>
+                        <option value="50000">Premium - $50.000</option>
+                        <option value="80000">VIP - $80.000</option>
+                    </select>
+                </div>
+                <div>
+                    <h3>Metodo de pago</h3>
+                </div>
+                <div><input type="radio" id="efectivo">Efectivo</div>
+                <div><input type="radio" id="TC">Tarjeta Crédito</div></div>
         </main>
     </div>
     <footer></footer>
 </body>
+<script src="/JS/Inicio.js"></script>
 </html>
