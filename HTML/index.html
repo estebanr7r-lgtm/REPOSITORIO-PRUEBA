@@ -9,15 +9,19 @@
 <body>
     <div id="contenedor">
         <header>
-            <h1 id="Saludo_Inicial">Bienvenidos</h1>
+            <div>
+            <h1 >Bienvenidos</h1>
+            </div>
         </header>
 
 
         <main>
-            <div class="class">Ejercicio 1                
+            <div class="class">Ejercicio 1              
                 <div>
                     <h2>Realizar Calculo de Compras</h2>
                 </div>
+
+
                 <div>
                     <p>
                         Realizaste una compra y sabes el precio del producto y su iva. 
@@ -25,17 +29,21 @@
                     </p>
                 </div>
                 
+
                 <div>
                 <label for="Valor_C">Ingrese el valor de su compra</label>
                 <input type="number" id="Valor_C" placeholder="Ingrese su valor">
-                
                 <label for="">Ingrese el IVA de su compra</label>
                 <input type="number" id="Valor_I" placeholder="Ingrese su valor">
+                </div>
 
+
+                <div>
                 <button onclick="compras()">Calcular</button>
-
                 <input type="text" id="resultado_c" placeholder="Resultado" readonly>
                 </div>
+
+
                 <div>
                     <h3 id="resultado_texto_c"></h3>
                 </div>
@@ -46,26 +54,31 @@
                 <div>
                     <h2>Calcular Área y Perimetro</h2>
                 </div>
-            <div>
-                <p>
-                    Crea un programa que te calcule el área y 
-                    el perímetro de un cuadrado al ingresar en una variable
-                    el lado del cuadrado en cuestión.
-                </p>
+
+
+                <div>
+                    <p>
+                        Crea un programa que te calcule el área y 
+                        el perímetro de un cuadrado al ingresar en una variable
+                        el lado del cuadrado en cuestión.
+                    </p>
+                </div>
+
+
+                <div>
+                    <label for="Lado_C">Ingrese el lado del cuadrado</label>
+                    <input type="number" id="Lado_C" placeholder="Ingrese un valor">
+                    <button onclick="A_P()">Ejecutar</button>
+                </div>
+
+
+                <div>
+                    <h3 id="Area_C">El area del cuadrado es: </h3>
+                    <h3 id="Perimetro_C">El perimetro del cuadrado es: </h3>
+                </div>
             </div>
 
-            <div>
-                <label for="Lado_C">Ingrese el lado del cuadrado</label>
-                <input type="number" id="Lado_C" placeholder="Ingrese un valor">
-                <button onclick="A_P()">Ejecutar</button>
-            </div>
 
-            <div>
-                <h3 id="Area_C">El area del cuadrado es: </h3>
-                <h3 id="Perimetro_C">El perimetro del cuadrado es: </h3>
-            </div>
-
-            </div>
             <div class="class">Ejercicio3
                 <div>
                     <h2>Unidades y Decenas</h2>
@@ -115,8 +128,9 @@
                     <h3 id="Huevos">Cantidad de Huevos: </h3>
                     <h3 id="Cebolla">Cantidad de Cebolla: </h3>
                 </div>
-
             </div>
+
+
             <div class="class">Ejercicio5
                 <div>
                     <h2>Adivinanza</h2>
@@ -134,7 +148,7 @@
                 <div>
                     <label for="Adivinado">Ingrese el numero a adivinar</label>
                     <input type="text" id="Adivinado" placeholder="Ingrese un valor">
-                    <button type="reset" onclick="Adivinanza()">Ejecutar</button>
+                    <button onclick="Adivinanza()">Ejecutar</button>
                 </div>
 
                 <div>
@@ -142,18 +156,87 @@
                     <h3 id="Cantidad_Intentos">Numero de intentos: </h3>
                     <h3 id="Numeros_Ingresados">Numeros ingresados: </h3>
                 </div>
-
-
             </div>
+
+
             <div class="class">Ejercicio6</div>
-            <div class="class">Ejercicio7</div>
-            <div class="class">Ejercicio8</div>
-            <div class="class">Ejercicio9</div>
-            <div class="class">Ejercicio10</div>
-            <div class="class">
+
+
+            <div class="class">Ejercicio7
+                <div>
+                    <h2>Cuál numero es mayor o menor</h2>
+                </div>
+
+
+                <div>
+                    <p>
+                        Realiza un programa que, al introducir 2 números, el ordenador
+                        indique cuál es mayor o si son iguales.
+                    </p>
+                </div>
+
+
+                <div>
+                    <label for="Numero_1"></label>
+                    <input type="number" id="Numero_1" placeholder="Ingrese un valor">
+                    <label for="Numero_2"></label>
+                    <input type="text" id="Numero_2" placeholder="Ingrese un valor">
+                    <button onclick="Cual_es_cual()">Ejecutar</button>
+                </div>
+
+
+                <div>
+                    <h3 id="Respuesta_Numeros"></h3>
+                </div>
+            </div>
+
+
+            <div class="class">Ejercicio 8
+                <div>
+                    <h2>Calculo de factorial</h2>
+                </div>
+
+                <div>
+                    <label for="Numero_Inicial">Ingrese un número</label>
+                    <input type="number" id="Numero_Inicial" placeholder="Ingrese un valor">
+                    <button onclick="Factor_Operacion()">Calcular</button>
+                </div>
+
+
+                <div>
+                    <h3 id="Total_Factor"></h3>
+                    <h3 id="Arreglo_Factor"></h3>
+                </div>
+            </div>
+
+
+            <div class="class">Ejercicio 9</div>
+            <div class="class">Ejercicio 10</div>
+            <div class="class">Ejercicio 11</div>
+            <div class="class">Ejercicio 12</div>
+            <div class="class">Ejercicio 13</div>
+            <div class="class">Ejercicio 14</div>
+            <div class="class">Ejercicio 15</div>
+
+
+            <div class="class">Ejercicio Random
                 <div>
                     <h2>Proceso de Pago</h2>
                 </div>
+
+
+                <div>
+                    <label for="T_D"></label>
+                    <select name="Tipos_Documento" id="T_D">
+                        <option value="S_D" selected>Seleccione Documento</option>
+                        <option value="Cedula_Ciudadania">C.C.</option>
+                        <option value="Cedula_Extranjeria">C.E</option>
+                        <option value="Pasaporte">PAS</option>
+                        <option value="Permiso_E_Permanencia">PEP</option>
+                        </select>
+                </div>
+
+
                 <div>
                     <label for="ID">Identificacion</label>
                     <input type="number" id="ID" placeholder="Numero de ID">
@@ -166,11 +249,26 @@
                         <option value="80000">VIP - $80.000</option>
                     </select>
                 </div>
+                
+
+                <div>
+                    <label for="">Valor a Pagar: </label>
+                    <input type="number" id="Valor_Pagar" readonly>
+                </div>
+
+
+                <div>
+                    <label for="">Valor pago</label>
+                    <input type="number" id="Pago">
+                </div>
+
+
                 <div>
                     <h3>Metodo de pago</h3>
                 </div>
-                <div><input type="radio" id="efectivo">Efectivo</div>
-                <div><input type="radio" id="TC">Tarjeta Crédito</div></div>
+                <div><input type="radio" name="Tipo_pago" value="Efectivo">Efectivo</div>
+                <div><input type="radio" name="Tipo_pago" value="TC">Tarjeta Crédito</div>
+                <button onclick="Random()">Pagar</button>
         </main>
     </div>
     <footer></footer>
