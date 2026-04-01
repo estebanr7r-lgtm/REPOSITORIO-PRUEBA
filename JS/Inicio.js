@@ -433,7 +433,86 @@ function Triangulo(){
 
 
 
-function numero13(){}
+/* 
+El siguiente ejercicio me parecía bastante sencillo...pero en realidad me tomó mucho tiempo.
+
+En especial porque no sabía que función usar. Busque en varias partes cómo hacerlo
+y la mayoría ingresaba las palabras por consola más no las estudiaba por listas o arreglos.
+
+Por ende, ésos ejercicios no me servían.
+
+Investigué más y encontré que existía la función forEach() o map().
+Como se puede ver en el ejercicio, implemente forEach; no por alguna característica en particular,
+sino porque fue la primera función que encontré al buscar solución al problema.
+A medida que fuí avanzando encontré map() pero no sé si sería una buena opción o no.
+Parece ser que, a pesar de ser otra función, conducía al mismo resultado; solo que
+cada función se ejecuta diferente obviamente.
+
+Ahora sí; la explicación oficial.
+
+Creamos una lista con una cantidad de palabras; la lista se llama "Palabras".
+Luego, creamos una lista donde almacenan palabras al azar de la lista "Palabras"
+Ésta segunda lista se llama "Palabras_Alazar".
+
+Ésto se hizo con el fin de hacer el ejercicio más dinámico.
+Más adelante se verá por qué.
+
+Posteriormente, creamos otra lista donde se van a guardar la cantidad
+de carácteres por cada una de las palabras en la lista "Palabras_Alazar".
+Ésta lista se llama "Carácteres_por_Palabra".
+
+Y por último, un acumulador que va a sumar la cantidad de carácteres de cada palabra
+para dar el total de los mismos si todos los carácteres en la lista
+fuesen una oración.
+
+En el primer bucle "for", le decimos al sistema que va a seleccionar 5 palabras
+al azar de la lista llamada "Palabras".
+Para ello, va a tomar como referente la longitud del arreglo como
+el límite de los números al azar que puede escoger.
+En éste caso, el límite para escoger un número al azar es de 0 a 14.
+Ahora, cuando el sistema ya elige un número al azar de 0 a 14, va a tomar
+ése número cómo el localizar del elemento (el índice), y va tomar el elemento
+que se encuentra en él para luego agregarlo a la lista "Palabras_Alazar".
+
+Ahora que ya tiene las palabras, debe tomar los carácteres de cada una de ellas.
+Aquí vamos a usar la función forEach (que es una función flecha), donde le decimos
+al sistema que va a recorrer elemento por elemento de la lista "Palabras_Alazar",
+y que cuando pase por cada elemento, 
+tome la longitud del elemento (que sería la cantidad de carácteres en la palabra),
+agrege la longitud del elemento en cuestión a la lista "Caracteres_por_Palabra",
+y además, vaya acumulando en la variable "Cantidad_Total_Caracteres" ésa longitud.
+
+Así, al final, tendremos en la lista "Caracteres_por_Palabra" la cantidad de
+carácteres que contiene cada palabra de la lista "Palabras_Alazar",
+y en "Cantidad_Total_Caracteres" tendremos la suma total de todos los carácteres
+de todas las palabras de ésa misma lista ("Palabras_Alazar").
+
+Finalmente, las mandamos como mensaje en texto a la página de HTML.
+*/
+function Caracteres(){
+    Palabras=["Avión","Aeropuerto","Pasaporte","Equipaje","Servicios","Comidas","Restaurantes","Hoteles","Transporte","Pertenencias","Reservas","Turismo","Visitas","Fotografías","Aduanas",]
+    Palabras_Alazar=[]
+    Caracteres_por_Palabra=[]
+    Cantidad_Total_Caracteres=0
+    for (let z = 1; z <= 5; z++) {
+        P_Alazar=Math.floor(Math.random()*Palabras.length)
+        Palabras_Alazar.push(Palabras[P_Alazar])
+    }
+    
+    Palabras_Alazar.forEach(elemento => {
+        Caracteres_por_Palabra.push(elemento.length)
+        Cantidad_Total_Caracteres=Cantidad_Total_Caracteres+(elemento.length)
+    })
+
+    document.getElementById("Arreglo_Palabras").textContent="El arreglo creado para éste ejercicio es: "+Palabras_Alazar
+    document.getElementById("Caracteres_Palabra").textContent="La cantidad de carácteres por palabras es: "+Caracteres_por_Palabra
+    document.getElementById("Caracteres_Oracion").textContent="La cantidad de carácteres totales en la oración son: "+Cantidad_Total_Caracteres
+}
+
+
+
+
+
 function numero14(){}
 function numero15(){}
 
