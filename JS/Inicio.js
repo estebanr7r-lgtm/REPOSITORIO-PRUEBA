@@ -10,6 +10,9 @@ function compras(){
 }
 
 
+
+
+
 function A_P(){
     Valor_Area=parseInt(document.getElementById("Lado_C").value)
 
@@ -19,6 +22,9 @@ function A_P(){
     document.getElementById("Area_C").textContent="El area del cuadrado es: "+Valor_A_F
     document.getElementById("Perimetro_C").textContent="El perimetro del cuadrado es: "+Valor_P_F
 }
+
+
+
 
  
 function U_D(){
@@ -37,6 +43,9 @@ function U_D(){
 }
 
 
+
+
+
 function Comensales(){
     Cantidad_Comensales= parseInt(document.getElementById("Numero_Comensales").value)
 
@@ -48,6 +57,10 @@ function Comensales(){
     document.getElementById("Huevos").textContent="Cantidad de Huevos: "+Cantidad_Huevos
     document.getElementById("Cebolla").textContent="Cantidad de Cebolla: "+Cantidad_Cebollas+" gr"
 }
+
+
+
+
 
 /*
 Con el siguiente código concluí lo siguiente:
@@ -122,7 +135,85 @@ function Adivinanza(){
 }
 
 
-function numero6(){}
+
+
+
+/*
+Creamos un arreglo que va a ir guardando los número generados por la fórmula Fibonacci.
+"Numero_Inicio_1" y "Numero_Inicio_2" van a ser las bases para que la operación
+Fibonacci funcione. Algunas fórmulas muestran que los 2 números bases inician con
+("1" - "1") y otras con ("0" - "1"). Yo escogí la segunda, puesto que la mayoría de las
+cosas inician desde 0.
+
+En el bucle "for" hacemos algo muy interesante y a la vez muy confuso; 
+se entiende mejor cuando se escribe sobre papel.
+Puesto que la operación sólo se inicia con dos números,
+vámos a jugar con el resultados que generan éstos dos.
+
+Le decimos al sistema que "Numero_Acumulador" es 
+el resultado de la suma de ("Numero_Inicio_1") y ("Numero_Inicio_2").
+Aquí viene lo confuso.
+
+Vámos a modificicar las variables dentro del bucle y a reemplazar su valor,
+de forma que, cuando termine una iteración, éstas variables tengan nuevos valores
+para el cálculo de la próxima iteración.
+
+Para ello, le decimos al sistema:
+
+"Numero_Inicio_1" ahora va a tener el valor de "Numero_Inicio_2".
+Y "Numero_Inicio_2" ahora va a tener el valor de "Numero_Inicio_2".
+
+De tal manera que ocurre lo siguiente:
+
+Operación Inicial
+Numero_Inicio_1=0
+Numero_Inicio_2=1
+Numero_Acumulador=Numero_Inicio_1+Numero_Inicio_2
+
+Por ende:
+(Numero_Inicio_1) 0 + (Numero_Inicio_2) 1 = (Numero_Acumulador) 1
+
+Y luego
+(Numero_Inicio_1) 1 + (Numero_Inicio_2) 1 = (Numero_Acumulador) 2
+
+Y luego:
+(Numero_Inicio_1) 1 + (Numero_Inicio_2) 2 = (Numero_Acumulador) 3
+
+Y luego:
+(Numero_Inicio_1) 2 + (Numero_Inicio_2) 3 = (Numero_Acumulador) 5
+
+Y así sucesivamente, se van cambiando las posiciones de las variables
+involucradas en la ecuación.
+
+Por último, le decimos al sistema que imprima el último valor 
+almacenado en el arreglo, y luego muestre el arreglo completo.
+*/
+
+
+
+
+
+function Fibonacci(){
+    Elementos_Fibonacci=[]
+    Numero_Inicio_1=0
+    Numero_Inicio_2=1
+    
+    Ingreso=parseInt(document.getElementById("Secuencia").value)
+
+    for (let r = 1; r <= Ingreso; r++) {
+        Numero_Acumulador=(Numero_Inicio_2+Numero_Inicio_1)
+        Elementos_Fibonacci.push(Numero_Acumulador)
+        Numero_Inicio_1=Numero_Inicio_2
+        Numero_Inicio_2=Numero_Acumulador
+        console.log("iteración"+r)
+    }
+    document.getElementById("Resultado_F").textContent="El número al final de la secuencia es: "+Elementos_Fibonacci.at(-1)
+    document.getElementById("Arreglo_Secuencia").textContent="La secuencia es: "+Elementos_Fibonacci
+}
+
+
+
+
 
 function Cual_es_cual(){
     Primer_Ingreso= parseInt(document.getElementById("Numero_1").value)
@@ -141,11 +232,31 @@ function Cual_es_cual(){
     }
 }
 
+
+
+
+
 /*
-N_R_F significa Numeros Relacionados al Factor.
+N_R_F
+Significa Numeros Relacionados al Factorial. 
+Éste arreglo conserva ésos números obtenidos por el factor.
+
+Numero_I
+Ésta es la variable que captura el numero ingresado por el usuario.
+Con ésta variable, vamos a crear un bucle "for" donde el límite va
+a ser determinado por ésta variable.
+
+Total=1
+Ésta variable va a ir aumentando gradualmente por el comando
+Total=Total*1, donde se le está indicando el sistema que se almacene
+en el bucle el resultado de una multiplicación, y el resultado de ésa
+multiplicación luego se volverá el inicio de la operación en la próxima
+iteración. 
+Resultado 5!= (1*1=1), (1*2=2), (2*3=6), (6*4=24), (24*5=120)
+Ecuación=(Total*Numero_Iteración)=(Nuevo_Total)
 */
 N_R_F=[]
-function Factor_Operacion(){
+function Factorial_Operacion(){
     Numero_I=parseInt(document.getElementById("Numero_Inicial").value)
     Total=1
     if(Numero_I>1){
@@ -153,16 +264,16 @@ function Factor_Operacion(){
             Total=Total*p
             N_R_F.push(Total)
         }
-        document.getElementById("Total_Factor").textContent="El resultado del factor "+Numero_I+" es: "+Total
-        document.getElementById("Arreglo_Factor").textContent="Numeros relacionados al factor: "+N_R_F.join(", ")
+        document.getElementById("Total_Factor").textContent="El resultado del factorial "+Numero_I+" es: "+Total
+        document.getElementById("Arreglo_Factor").textContent="Numeros relacionados al factorial: "+N_R_F.join(", ")
     }
 
     if(Numero_I===0){
-        document.getElementById("Total_Factor").textContent="El resultado del factor "+Numero_I+" es: 1"
+        document.getElementById("Total_Factor").textContent="El resultado del factorial "+Numero_I+" es: 1"
     }
 
     if(Numero_I===1){
-        document.getElementById("Total_Factor").textContent="El resultado del factor "+Numero_I+" es: 0"
+        document.getElementById("Total_Factor").textContent="El resultado del factorial "+Numero_I+" es: 0"
     }
 
     if (Numero_I<0){
@@ -171,13 +282,163 @@ function Factor_Operacion(){
 }
 
 
-function numero9(){}
-function numero10(){}
-function numero11(){}
-function numero12(){}
+
+
+
+Multiplos_Contenedor=[]
+function Multiplo_Numeros(){
+    Numero_1=parseInt(document.getElementById("Primer_Numero").value)
+    Numero_2=parseInt(document.getElementById("Segundo_Numero").value)
+
+    if(Numero_1>Numero_2){
+        Multiplos_Contenedor.unshift(Numero_2)
+        for (let i = Numero_2; i < Numero_1; i++) {
+            Calculo=6*i
+            Multiplos_Contenedor.push(Calculo)
+        }
+        Multiplos_Contenedor.push(Numero_1)
+    }
+
+    if (Numero_1<Numero_2){
+        Multiplos_Contenedor.unshift(Numero_1)
+        for (let i = Numero_1; i < Numero_2; i++) {
+        Calculo=6*i
+        Multiplos_Contenedor.push(Calculo)
+        }
+        Multiplos_Contenedor.push(Numero_2)
+    }
+
+    document.getElementById("Multiplos").textContent=Multiplos_Contenedor.join(' - ')
+}
+
+
+
+
+
+Inicial=[]
+Pares=[]
+Impares=[]
+function Arreglo_20(){
+    
+    for (let a = 1; a <=20; a++) {
+        Numeros_Alazar=Math.floor(Math.random()*101)
+        Inicial.push(Numeros_Alazar)
+
+        if(Numeros_Alazar%2==0) {
+            Pares.push(Numeros_Alazar)
+        }
+
+        if(Numeros_Alazar%2==1){
+            Impares.push(Numeros_Alazar)
+        }
+    }
+    document.getElementById("A_Inicial").textContent="Arreglo Inicial: "+Inicial.join(' - ')
+    document.getElementById("A_Pares").textContent="Arreglo - Pares: "+Pares.join(' - ')
+    document.getElementById("A_Impares").textContent="Arreglo - Impares: "+Impares.join(' - ')
+}
+
+ 
+Normal=[]
+function Generar_Arreglos_3(){
+    for (let l = 0; l < 10; l++) {
+        Numero_A=Math.floor(Math.random()*(20 - 10 + 1)+10)
+        Normal.push(Numero_A)  
+    }
+
+    let Multiplos_3= Normal.filter(elemento => elemento %3 !==0)
+    
+    document.getElementById("Arreglo_Normal").textContent="Arreglo Normal: "+Normal
+    document.getElementById("Arreglo_3").textContent="Arreglo sin multiplos de 3: "+Multiplos_3
+}
+
+
+
+
+
+/* 
+El siguiente ejercicio se realiza de la siguiente manera.
+
+Traemos los valores de lados ingresados en los input de HTML y
+luego los renombramos en JS para poderlos manejar para ecuaciones.
+
+El ejercicio inicialmente decía que se tenían que calcular el área de un triángulo
+con base a los tres lados ingresados por el usuario, así mismo como el tipo de triangulo
+de acuerdo a las medidas de los lados.
+Sin embargo, estuve investigando y encontre que la manera de calcular el área
+de un triángulo es por usando la fórmula ((altura * base)/2), cosa que en éste caso
+no servía ya que teníamos los lados, más no la base ni la altura como tal.
+Además, la fórmula anterior tiende a servir más para triángulos tipo Isosceles.
+Así que, por la forma en que está escrito el ejercicio, preferí hacer tanto el perímetro
+como el área del triángulo. 
+
+Por ello, investigue un poco más, y encontré la fórmula de Herón.
+La fórmula dice que si tienes la medida de los tres lados del triángulo,
+entonces ya puedes calcular el Semiperimetro con el cual también se podría
+calcular el área.
+
+Semiperimetro = (Lado 1 + Lado 2 + Lado 3)/2
+
+Entonces, una vez que ya sabemos cómo calcular el Semiperimetro,
+hacemos la siguiente fórmula.
+
+Área del Triangulo = (RaizCuadrada(Semiperimetro*(Semiperimetro - Lado 1)*(Semiperimetro - Lado 2)*(Semiperimetro - Lado 3))).
+
+De ésa forma resolvemos el problema del área y del perímetro del triángulo.
+
+Pero entonces, ¿cómo se supone que voy a saber si es un triángulo equilatero, isosceles, o Escaleno?
+Buscando un poco más, y teniendo en cuenta que fue más fácil encontrar éste dato que el de la fórmula de Herón,
+se sabe que si todos los lados de un triángulo son iguales, es equilatero.
+Si solo 2 de los 3 lados son iguales, entonces es Isosceles.
+Y si ninguno de los lados son iguales entre sí, entonces es escaleno.
+
+Teniendo ello en mente, le decimos al sistema que por medio del primer "if",
+verifique que sí o sí todos los lados digitados por el usuario sean iguales.
+De ser así, manda el mensaje en texto de que el triángulo es equilatero.
+Si alguno de los 3 lados no es igual, el sistema revisa si al menos hay 2 lados iguales
+para determinar si es Isosceles, y de ser así, mandar el mensaje en texto
+de que es Isoceles. Éso lo hace el "else if".
+Si no se cumple el primer "if" ni tampoco el "else if", entonces el sistema procede
+con el "else" para mandar el mensaje de texto de que es un triángulo escaleno.
+
+Ésa...es la lógica detrás del código.
+*/
+function Triangulo(){
+    Primer_Lado = parseInt(document.getElementById("Lado_1").value)
+    Segundo_Lado = parseInt(document.getElementById("Lado_2").value)
+    Tercer_Lado = parseInt(document.getElementById("Lado_3").value)
+
+    Perimetro=Primer_Lado+Segundo_Lado+Tercer_Lado
+    Medida_Area_T= Primer_Lado
+    Semiperimetro=Perimetro/2
+    Area_T=Math.sqrt(Semiperimetro*(Semiperimetro-Primer_Lado)*(Semiperimetro-Segundo_Lado)*(Semiperimetro-Tercer_Lado))
+    console.log(Area_T)
+
+    if (Primer_Lado===Segundo_Lado && Segundo_Lado===Tercer_Lado){
+        document.getElementById("Tipo_Triangulo").textContent="El triángulo es: Equilatero."
+    }
+
+    else if (Primer_Lado===Segundo_Lado || Segundo_Lado===Tercer_Lado || Primer_Lado===Tercer_Lado){
+        document.getElementById("Tipo_Triangulo").textContent="El triángulo es: Isosceles."
+    }
+
+    else {
+        document.getElementById("Tipo_Triangulo").textContent="El triángulo es: Escaleno."
+    }
+
+    document.getElementById("Perimetro_Triangulo").textContent="El perímetro del triangulo es: "+Perimetro
+    document.getElementById("Area_Triangulo").textContent="El área del triángulo es: "+Medida_Area_T
+}
+
+
+
+
+
 function numero13(){}
 function numero14(){}
 function numero15(){}
+
+
+
 
 
 /*
@@ -282,6 +543,14 @@ function Random(){
 
 
     const Fecha= new Date
-    console.log("Tipo de Documento: ",Tipo_Documento,"\n Numero de Documento: "
-    ,Numero_Documento,"\n Pago: ",Pago,"\n Tarifa Seleccionada: ",Total,"\n Fecha de pago: ",Fecha)
+
+    if(Tipo_Documento !=="S_D"){
+        if(Numero_Documento){
+            if(Pago){
+            console.log("Tipo de Documento: ",Tipo_Documento,"\n Numero de Documento: "
+            ,Numero_Documento,"\n Pago: ",Pago,"\n Fecha de pago: ",Fecha)
+            
+            }
+        }
+    }
 }
