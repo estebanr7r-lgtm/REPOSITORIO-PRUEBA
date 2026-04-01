@@ -10,7 +10,8 @@
     <div id="contenedor">
         <header>
             <div>
-            <h1 >Bienvenidos</h1>
+            <h1 >Esteban Rojas</h1>
+            <h3>Ejercicios de Práctica</h3>
             </div>
         </header>
 
@@ -79,7 +80,7 @@
             </div>
 
 
-            <div class="class">Ejercicio3
+            <div class="class">Ejercicio 3
                 <div>
                     <h2>Unidades y Decenas</h2>
                 </div>
@@ -104,7 +105,7 @@
             </div>
 
 
-            <div class="class">Ejercicio4
+            <div class="class">Ejercicio 4
                 <div>
                     <h2>Comida y Comensales</h2>
                 </div>
@@ -131,7 +132,7 @@
             </div>
 
 
-            <div class="class">Ejercicio5
+            <div class="class">Ejercicio 5
                 <div>
                     <h2>Adivinanza</h2>
                 </div>
@@ -159,10 +160,34 @@
             </div>
 
 
-            <div class="class">Ejercicio6</div>
+            <div class="class">Ejercicio 6
+                <div>
+                    <h2>
+                        Serie Fibonacci
+                    </h2>
+                </div>
 
 
-            <div class="class">Ejercicio7
+                <div>
+                    <p>
+                        Serie Fibonacci donde el usuario decide el numero de secuencias a mostrar.
+                    </p>
+                </div>
+
+                <div>
+                    <label for="Secuencia">Ingrese Numero de Secuencias</label>
+                    <input type="number" id="Secuencia" placeholder="Ingrese un valor">
+                    <button onclick="Fibonacci()">Ejecutar</button>
+                </div>
+
+
+                <div>
+                    <h3 id="Resultado_F"></h3>
+                    <h3 id="Arreglo_Secuencia"></h3>
+                </div>
+            </div>
+
+            <div class="class">Ejercicio 7
                 <div>
                     <h2>Cuál numero es mayor o menor</h2>
                 </div>
@@ -177,9 +202,9 @@
 
 
                 <div>
-                    <label for="Numero_1"></label>
+                    <label for="Numero_1">Ingrese el 1° Número</label>
                     <input type="number" id="Numero_1" placeholder="Ingrese un valor">
-                    <label for="Numero_2"></label>
+                    <label for="Numero_2">Ingrese el 2° Número</label>
                     <input type="text" id="Numero_2" placeholder="Ingrese un valor">
                     <button onclick="Cual_es_cual()">Ejecutar</button>
                 </div>
@@ -199,7 +224,7 @@
                 <div>
                     <label for="Numero_Inicial">Ingrese un número</label>
                     <input type="number" id="Numero_Inicial" placeholder="Ingrese un valor">
-                    <button onclick="Factor_Operacion()">Calcular</button>
+                    <button onclick="Factorial_Operacion()">Calcular</button>
                 </div>
 
 
@@ -210,10 +235,136 @@
             </div>
 
 
-            <div class="class">Ejercicio 9</div>
-            <div class="class">Ejercicio 10</div>
-            <div class="class">Ejercicio 11</div>
-            <div class="class">Ejercicio 12</div>
+            <div class="class">Ejercicio 9
+                <div>
+                    <h2>
+                        Multiplos de 6
+                    </h2>
+                </div>
+
+
+                <div>
+                    <p>
+                        Escribe un programa que solicite al usuario dos números, y 
+                        luego muestre todos los números múltiplos de 6 
+                        que hay entre esos dos números, incluyendo los extremos.
+                    </p>
+                </div>
+
+
+                <div>
+                    <label for="">Ingrese el 1° Número</label>
+                    <input type="number" id="Primer_Numero" placeholder="Ingrese un valor">
+                    <label for="">Ingrese el 2° Número</label>
+                    <input type="number" id="Segundo_Numero" placeholder="Ingrese un valor">
+                    <button onclick=" Multiplo_Numeros()">Calcular</button>
+                </div>
+
+                <div>
+                    <h3 id="Multiplos">Los números multiplos entre éstos números son: </h3>
+                </div>
+            </div>
+
+
+            <div class="class">Ejercicio 10
+                <div>
+                    <h2>
+                        Arreglo Normal, Par e Impar
+                    </h2>
+                </div>
+
+
+                <div>
+                    <p>
+                        Crear un programa que genere un arreglo con 20 números entre 0 y 100, 
+                        muestre este arreglo y luego cree 2 arreglos adicionales 
+                        donde se separan pares de impares.
+                    </p>
+                </div>
+
+
+                <div>
+                    <button onclick="Arreglo_20()">Generar Arreglos</button>
+                </div>
+
+
+                <div>
+                    <h4 id="A_Inicial">Arreglo Inicial: </h4>
+                    <h4 id="A_Pares">Arreglo - Pares: </h4>
+                    <h4 id="A_Impares">Arreglo - Impares: </h4>
+                </div>
+            </div>
+
+
+            <div class="class">Ejercicio 11
+                <div>
+                    <h2>
+                        Arreglo sin multiplos de 3
+                    </h2>
+                </div>
+
+                
+                <div>
+                    <p>
+                        Crear un programa que genere un arreglo con 10 números entre 10 y 20,
+                        lo muestre, y luego elimine los múltiplos de 3,
+                        mostrando como quedaría el arreglo modificado.
+                    </p>
+                </div>
+
+
+                <div>
+                    <button onclick="Generar_Arreglos_3()">Generar Arreglos</button>
+                </div>
+
+
+                <div>
+                    <h3 id="Arreglo_Normal"></h3>
+                    <h3 id="Arreglo_3"></h3>
+                </div>
+
+            </div>
+            <div class="class">Ejercicio 12
+                <div>
+                    <h2>
+                        Lados del Triangulo
+                    </h2>
+                </div>
+
+
+                <div>
+                    <p>
+                        Dados los 3 lados de un triangulo estimar su área,
+                        y determinar si es equilátero, isósceles o escaleno.
+                    </p>
+                </div>
+
+
+                <div>
+                    <label for="Lado_1">Ingrese 1° Lado</label>
+                    <input type="number" id="Lado_1" placeholder="Ingrese un valor">
+
+
+                    <label for="Lado_2">Ingrese 2° Lado</label>
+                    <input type="number" id="Lado_2" placeholder="Ingrese un valor">
+
+
+                    <label for="Lado_3">Ingrese 3° Lado</label>
+                    <input type="number" id="Lado_3" placeholder="Ingrese un valor">
+
+
+                    <button onclick="Triangulo()">Calcular y Ejecutar</button>
+                </div>
+
+                
+                <div>
+                    <h3 id="Perimetro_Triangulo">El perímetro del triangulo es: </h3>
+                    <h3 id="Area_Triangulo">El área del triangulo es: </h3>
+                    <h3 id="Tipo_Triangulo">El triángulo es: </h3>
+                </div>
+            </div>
+
+
             <div class="class">Ejercicio 13</div>
             <div class="class">Ejercicio 14</div>
             <div class="class">Ejercicio 15</div>
