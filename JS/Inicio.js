@@ -513,8 +513,145 @@ function Caracteres(){
 
 
 
-function numero14(){}
-function numero15(){}
+/*
+Con respecto a la siguiente función, vámos a aclarar lo siguiente.
+
+Creamos el arreglo que va a guardar 10 números que se generen al azar, el cual es "Arreglo_S_Modificar".
+
+Usando un ciclo "for", dentro de él, creamos una variable
+que va a hacer números al azar entre el 0 y 10.
+"Math.random" crea un número al azar en decimales, mientras que "Math.floor" 
+redondea ése número.
+Una vez que se crea el número random en la iteración correspondiente, 
+antes de empezar la próxima iteración, envíamos ése número al arreglo "Arreglo_S_Modificar".
+
+El otro arreglo que vámos a crear ("Arreglo_Algorit"), es para invertir el arreglo principal
+usando un bucle "for"...a diferencia de que éste bucle lo vámos a realizar de forma invertida.
+
+Una vez creado el arreglo "Arreglo_S_Modificar" con sus elementos, creamos una valiable
+que represente la longitud de éste arreglo, el cual se va a llamar "Longitud_Arreglo".
+Ésta variable sirve para determinar la cantidad de veces que se vá a repetir el bucle,
+pero además de éso, también sirve para indicar el índice donde se ubican los elementos en el arreglo.
+Con la Longitud del arreglo y el descontador ("index--"), el sistema empezará por el índice 10 y 
+luego descontará 1 índice, y así será indice 9, y luego descontará 1 índice, y ahora será índice 8. 
+Y así sucesivamente.
+
+¿Por qué le descontamos -1 a "Longitud_Arreglo"?
+Porque el arreglo contiene 10 elementos con las siguientes posiciones [0,1,2,3,4,5,6,7,8,9].
+Si dejamos la cantidad de elementos, como si fueran el número de índices (posiciones), 
+el sistema creará un nuevo elemento que será "undefined" debido a que no existe la posición 10.
+
+Así que, al hacer "Arreglo_S_Modificar.length", conocemos la CANTIDAD de elementos en el arreglo,
+más no la POSICIÓN de ellos.
+
+El sistema empieza a contar los elementos desde 1, lo cual sería (1-10).
+Pero al contar las posiciones, el sistema empieza a contar desde 0, lo cual sería (0-10).
+Por tanto, de acuerdo a lo que hicimos, quedaría:
+ELEMENTOS[ ,1,2,3,4,5,6,7,8,9,10]
+POSICION [0,1,2,3,4,5,6,7,8,9,10] 
+
+El "0" va a sobrar, porque solo existen 10 elementos, no 11; 
+como son 11 posiciones (incluyendo el 0), una de ésas posiciones va a quedar vacía.
+Así que, cuando restamos -1 a la longitud del arreglo, ya no quedaría (0-10) sino (0-9).
+
+Así, cada POSICION tendrá un número (elemento) correspondiente, quedando de la siguiente forma:
+ELEMENTOS[1,2,3,4,5,6,7,8,9,10]
+POSICION [0,1,2,3,4,5,6,7,8,9]
+De ésta forma, al elemento "1" le corresponde la posición "0", 
+el elemento "2" le corresponde la posición "1",
+el elemento "3" le corresponde la posición "2", y así sucesivamente. 
+
+Y el último arreglo que vámos a hacer, contiene la función ".reverse()".
+La función por sí sola, toma el arreglo original y modifica sus elementos para ponerlos
+de forma invertida. 
+¿Qué significa? Que básicamente, el sistema va a borrar el arreglo original para poder modificarlo.
+Éso no es lo que quiero; quiero que lo conserve.
+Y como quiero que lo conserve, hacemos lo siguiente: "Arreglo_Reverso=[...Arreglo_S_Modificar].reverse()".
+
+¿Qué es lo que le estoy indicando al sistema?
+Le estoy diciendo: 
+Vas a crear un arreglo vacio llamado "Arreglo_Reverso". 
+Ése arreglo, va a ser la copia o el duplicado del "Arreglo_S_Modificar".
+Una vez teniendo el duplicado, vas a modificar los elementos de ése duplicado 
+para organizarlos de forma invertida.
+
+La función "".reverse()"" hace prácticamente todo el trabajo...solo que trabaja en conjunto
+con algo que, no sabía que se podía hacer.
+
+Cuando agregas 3 puntos suspensivos (...) seguidos del nombre del arreglo,
+es como si se le estuviera diciendo al sistema:
+Necesito que crees una copia o duplicado del arreglo "Arreglo_S_Modificar",
+de forma que todo lo que vayamos a hacer afecte al duplicado, más no al arreglo original.
+Y ahora con éste duplicado, vas a a invertir sus elementos.
+
+De ésa forma, con la función ".reverse()", tenemos el arreglo al revés.
+ */
+function AlReves(){
+    Arreglo_S_Modificar=[]
+    Arreglo_Algorit=[]
+
+    for (let index = 1; index <=10 ; index++) {
+        N_Random=Math.floor(Math.random()*10)+1
+        Arreglo_S_Modificar.push(N_Random)
+    }
+
+    Longitud_Arreglo=Arreglo_S_Modificar.length - 1
+
+    for (let index = Longitud_Arreglo; index >=0 ; index--) {
+        Arreglo_Algorit.push(Arreglo_S_Modificar[index])
+    }
+
+    console.log(Arreglo_Algorit)
+
+    Arreglo_Reverso=[...Arreglo_S_Modificar].reverse()
+    
+    document.getElementById("Sin_modicicaciones").textContent="Arreglo Inicial :"+Arreglo_S_Modificar
+    document.getElementById("A_Reverse").textContent="Arreglo Reverso: "+Arreglo_Reverso
+}
+
+
+
+
+
+/* 
+*/
+function Operaciones_Matematicas(){
+    const Opciones=document.querySelectorAll('input[name="operacion"]')
+    const Boton_operaciones=document.querySelector('button[name="Importante"]')
+        Boton_operaciones.addEventListener("click", () => {
+        
+        Opciones.forEach(Opcion_Seleccionada  => {
+            const A =parseInt(document.getElementById("Ingreso_Numero_1").value)
+            const B =parseInt(document.getElementById("Ingreso_Numero_2").value)
+
+            if(Opcion_Seleccionada.checked){
+                if (Opcion_Seleccionada.value=="Adicion"){
+                Resultado_Adicion=A+B
+                document.getElementById("Resultado_Operaciones").textContent=Resultado_Adicion
+            }
+
+            if (Opcion_Seleccionada.value=="Sustraccion"){
+                Resultado_Sustraccion=A-B
+                document.getElementById("Resultado_Operaciones").textContent=Resultado_Sustraccion
+            }
+
+            if (Opcion_Seleccionada.value=="Multiplicacion"){
+                Resultado_Multiplicacion=A*B
+                document.getElementById("Resultado_Operaciones").textContent=Resultado_Multiplicacion
+            }
+
+            if (Opcion_Seleccionada.value=="Division"){
+                if(A==0 || B==0){
+                    alert("No se puede dividir con 0 Por favor elija otro número.")
+                }
+                Resultado_Division_1=A/B
+                document.getElementById("Resultado_Operaciones").textContent=Resultado_Division_1
+            }
+            
+            }
+        })
+    });
+}
 
 
 
@@ -583,6 +720,7 @@ de esas 2 entradas (inputs).
         }
     }
 });
+
 
 Radios.forEach(Radio => {
     Radio.addEventListener("change", () => {

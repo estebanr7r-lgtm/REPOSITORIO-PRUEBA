@@ -390,10 +390,92 @@
                     <h3 id="Caracteres_Palabra"></h3>
                     <h3 id="Caracteres_Oracion"></h3>
                 </div>
-
             </div>
-            <div class="class">Ejercicio 14</div>
-            <div class="class">Ejercicio 15</div>
+
+
+            <div class="class">Ejercicio 14
+                <div>
+                    <h2>Arreglos al Reves</h2>
+                </div>
+
+
+                <div>
+                    <p>
+                        Generar un arreglo con 10 números, generar 2 nuevos arreglos.
+                        Debes invertir el contenido de uno de ellos de manera algorítmica,
+                        y el otro con el uso de la función (reverse)
+                    </p>
+                </div>
+
+
+                <div>
+                    <button onclick="AlReves()">Generar Arreglos</button>
+                </div>
+
+                <div>
+                    <h3 id="Sin_modicicaciones">Arreglo Inicial :</h3>
+                    <h3 id="A_algoritmo">Arreglo Algorítmicamente invertido: </h3>
+                    <h3 id="A_Reverse">Arreglo Reverso: </h3>
+                </div>
+            </div>
+            
+
+            <div class="class">Ejercicio 15
+                <div>
+                    <h2>
+                        Calculadora Básica
+                    </h2>
+                </div>
+                
+
+                <div>
+                    <p>
+                        Realizar calculadora básica, 
+                        donde el usuario decide la operación
+                        a realizar mediante un "input type radio".
+                    </p>
+                </div>
+
+
+                <div>
+                    <h2>Seleccione una Operación Matemática</h2>
+                    <div>
+                        <input type="radio" name="operacion" value="Adicion">Suma
+                    </div>
+
+
+                    <div>
+                        <input type="radio" name="operacion" value="Sustraccion">Resta
+                    </div>
+
+
+                    <div>
+                        <input type="radio" name="operacion" value="Multiplicacion">Multipliación
+                    </div>
+
+
+                    <div>
+                        <input type="radio" name="operacion" value="Division">División
+                    </div>
+                </div>
+
+
+                <div>
+                    <label for="Ingreso_Numero_1">Ingrese el 1° Número: </label>
+                    <input type="number" id="Ingreso_Numero_1" placeholder="Ingrese un Valor">
+                    <label for="Ingreso_Numero_2">Ingrese el 2° Número: </label>
+                    <input type="number" id="Ingreso_Numero_2" placeholder="Ingrese un Valor">
+                    <button onclick="Operaciones_Matematicas()" name="Importante">Calcular</button>
+                </div>
+
+
+                <div>
+                    <h3 id="Resultado_Operaciones">El resultado es:</h3>
+                </div>
+            </div>
+
+
+
 
 
             <div class="class">Ejercicio Random
@@ -418,6 +500,8 @@
                     <label for="ID">Identificacion</label>
                     <input type="number" id="ID" placeholder="Numero de ID">
                 </div>
+
+
                 <div>
                     <label for="Esquema_Tarifario">Seleccione su tarifa</label>
                     <select id="Esquema_Tarifario">
@@ -443,9 +527,11 @@
                 <div>
                     <h3>Metodo de pago</h3>
                 </div>
+
+
                 <div><input type="radio" name="Tipo_pago" value="Efectivo">Efectivo</div>
                 <div><input type="radio" name="Tipo_pago" value="TC">Tarjeta Crédito</div>
-                <button onclick="Random()">Pagar</button>
+                <button id="Unico" onclick="Random()">Pagar</button>
         </main>
     </div>
     <footer></footer>
