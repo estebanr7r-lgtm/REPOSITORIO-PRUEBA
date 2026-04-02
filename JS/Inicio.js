@@ -513,8 +513,187 @@ function Caracteres(){
 
 
 
-function numero14(){}
-function numero15(){}
+/*
+Con respecto a la siguiente función, vámos a aclarar lo siguiente.
+
+Creamos el arreglo que va a guardar 10 números que se generen al azar, el cual es "Arreglo_S_Modificar".
+
+Usando un ciclo "for", dentro de él, creamos una variable
+que va a hacer números al azar entre el 0 y 10.
+"Math.random" crea un número al azar en decimales, mientras que "Math.floor" 
+redondea ése número.
+Una vez que se crea el número random en la iteración correspondiente, 
+antes de empezar la próxima iteración, envíamos ése número al arreglo "Arreglo_S_Modificar".
+
+El otro arreglo que vámos a crear ("Arreglo_Algorit"), es para invertir el arreglo principal
+usando un bucle "for"...a diferencia de que éste bucle lo vámos a realizar de forma invertida.
+
+Una vez creado el arreglo "Arreglo_S_Modificar" con sus elementos, creamos una valiable
+que represente la longitud de éste arreglo, el cual se va a llamar "Longitud_Arreglo".
+Ésta variable sirve para determinar la cantidad de veces que se vá a repetir el bucle,
+pero además de éso, también sirve para indicar el índice donde se ubican los elementos en el arreglo.
+Con la Longitud del arreglo y el descontador ("index--"), el sistema empezará por el índice 10 y 
+luego descontará 1 índice, y así será indice 9, y luego descontará 1 índice, y ahora será índice 8. 
+Y así sucesivamente.
+
+¿Por qué le descontamos -1 a "Longitud_Arreglo"?
+Porque el arreglo contiene 10 elementos con las siguientes posiciones [0,1,2,3,4,5,6,7,8,9].
+Si dejamos la cantidad de elementos, como si fueran el número de índices (posiciones), 
+el sistema creará un nuevo elemento que será "undefined" debido a que no existe la posición 10.
+
+Así que, al hacer "Arreglo_S_Modificar.length", conocemos la CANTIDAD de elementos en el arreglo,
+más no la POSICIÓN de ellos.
+
+El sistema empieza a contar los elementos desde 1, lo cual sería (1-10).
+Pero al contar las posiciones, el sistema empieza a contar desde 0, lo cual sería (0-10).
+Por tanto, de acuerdo a lo que hicimos, quedaría:
+ELEMENTOS[ ,1,2,3,4,5,6,7,8,9,10]
+POSICION [0,1,2,3,4,5,6,7,8,9,10] 
+
+El "0" va a sobrar, porque solo existen 10 elementos, no 11; 
+como son 11 posiciones (incluyendo el 0), una de ésas posiciones va a quedar vacía.
+Así que, cuando restamos -1 a la longitud del arreglo, ya no quedaría (0-10) sino (0-9).
+
+Así, cada POSICION tendrá un número (elemento) correspondiente, quedando de la siguiente forma:
+ELEMENTOS[1,2,3,4,5,6,7,8,9,10]
+POSICION [0,1,2,3,4,5,6,7,8,9]
+De ésta forma, al elemento "1" le corresponde la posición "0", 
+el elemento "2" le corresponde la posición "1",
+el elemento "3" le corresponde la posición "2", y así sucesivamente. 
+
+Y el último arreglo que vámos a hacer, contiene la función ".reverse()".
+La función por sí sola, toma el arreglo original y modifica sus elementos para ponerlos
+de forma invertida. 
+¿Qué significa? Que básicamente, el sistema va a borrar el arreglo original para poder modificarlo.
+Éso no es lo que quiero; quiero que lo conserve.
+Y como quiero que lo conserve, hacemos lo siguiente: "Arreglo_Reverso=[...Arreglo_S_Modificar].reverse()".
+
+¿Qué es lo que le estoy indicando al sistema?
+Le estoy diciendo: 
+Vas a crear un arreglo vacio llamado "Arreglo_Reverso". 
+Ése arreglo, va a ser la copia o el duplicado del "Arreglo_S_Modificar".
+Una vez teniendo el duplicado, vas a modificar los elementos de ése duplicado 
+para organizarlos de forma invertida.
+
+La función "".reverse()"" hace prácticamente todo el trabajo...solo que trabaja en conjunto
+con algo que, no sabía que se podía hacer.
+
+Cuando agregas 3 puntos suspensivos (...) seguidos del nombre del arreglo,
+es como si se le estuviera diciendo al sistema:
+Necesito que crees una copia o duplicado del arreglo "Arreglo_S_Modificar",
+de forma que todo lo que vayamos a hacer afecte al duplicado, más no al arreglo original.
+Y ahora con éste duplicado, vas a a invertir sus elementos.
+
+De ésa forma, con la función ".reverse()", tenemos el arreglo al revés.
+ */
+function AlReves(){
+    Arreglo_S_Modificar=[]
+    Arreglo_Algorit=[]
+
+    for (let index = 1; index <=10 ; index++) {
+        N_Random=Math.floor(Math.random()*10)+1
+        Arreglo_S_Modificar.push(N_Random)
+    }
+
+    Longitud_Arreglo=Arreglo_S_Modificar.length - 1
+
+    for (let index = Longitud_Arreglo; index >=0 ; index--) {
+        Arreglo_Algorit.push(Arreglo_S_Modificar[index])
+    }
+
+    console.log(Arreglo_Algorit)
+
+    Arreglo_Reverso=[...Arreglo_S_Modificar].reverse()
+    
+    document.getElementById("Sin_modicicaciones").textContent="Arreglo Inicial :"+Arreglo_S_Modificar
+    document.getElementById("A_algoritmo").textContent="Arreglo Algorítmicamente Invertido: "+Arreglo_Algorit
+    document.getElementById("A_Reverse").textContent="Arreglo Reverso: "+Arreglo_Reverso
+}
+
+
+
+
+
+/*
+Éste ejercicio va a ser algo difícil de describir, pero voy a hacer mi mejor intento.
+
+Empecemos por el hecho de que, sobre la marcha...me dí cuenta que, no tenía claro para qué
+era "querySelector" y "querySelectorAll". 
+Sé que el profe los usó, pero ya no me acordaba para qué era que se usaban.
+Algo similar ocurrió con addEventListener.
+
+querySelectorAll
+Se usa cuando queremos encontrar varios elementos de HTML con el mismo 
+tipo de clase, nombre o tipo de etiqueta (inputs, parrafos, o labels, por ejemplo).
+
+querySelector
+Lo utilizamos para buscar algo más en específico.
+Es decir, si "querySelectorAll" es para buscar varias cosas,
+ésta herramienta solo sirve para buscar una cosa en específico.
+
+addEventListener
+Se utiliza para cuando necesitamos que el sistema reaccione ante cierta situación
+provocada por el usuario; puede ser un click, un cambio, el cursor sobre una acción,
+o cosas similares.
+
+Aquí viene lo interesante; cuando estaba realizando éste código,
+estaba tratando de realizar una "function" que 
+iba a operar cuando el usuario presionara un botón. 
+El problema: cuando dejé la "function"
+y el "addEventListener", el sistema tenía que ejecutar dos cosas por la misma acción:
+la función ejecutada por el botón, y la reacción del "addEventListener".
+Y éso causaba que, como usuario, tuviera que hacer doble click sobre el botón para que porfin se
+ejecutara el addEventListener. 
+Por ésa razón, sólo deje el "addEventListener";
+porque el sistema podía operar directamente sin depender de una función llamada por el botón.
+
+Ahora, voy a explicar un poco más la teoría interna.
+
+Lo que le indicamos al sistema por medio de la función "Opciones.forEach", 
+es que debía leer cada uno de los <input type radios> que estaban capturados en la variable
+"Opciones", donde cada uno de esos <input type radios> se iba a llamar
+"Opcion_Seleccionada". Y si encontraba que alguno de éstos <input type radios>
+había sido seleccionado por el usuario (es decir, "checked"), 
+entonces, procedía a comparar su valor para así llegar a proceder con la ecuación correspondiente. 
+
+Para que éste texto no sea tan largo, voy a aclarar brevemente qué hace cada variable a continuación.
+*/
+const Opciones=document.querySelectorAll('input[name="operacion"]') //Capturamos todos los <input type radios>.
+const Boton_operaciones=document.querySelector('button[name="Importante"]') //Capturamos al botón por medio del nombre (también se puede por el id si se quiere).
+
+Boton_operaciones.addEventListener("click", () => {  //Le decimos al sistema que esté atento cuando el usuario de click al botón. De ser así, procede a ejecutar lo tabulado en la misma función.  
+
+    Opciones.forEach(Opcion_Seleccionada  => {  //El sistema leerá cada <input type radio> capturado en "Opciones", donde cada <input type radio> va a ser un elemento llamado "Opcion_Seleccionada".
+
+
+        const A =parseInt(document.getElementById("Ingreso_Numero_1").value) //Traemos el primer número ingresado por el usuario y lo nombramos en JS.
+        const B =parseInt(document.getElementById("Ingreso_Numero_2").value) //Traemos el segundo número ingresado por el usuario y lo nombramos en JS también.
+
+
+            if(Opcion_Seleccionada.checked){ //Si algún <input type radio> fue seleccionado (.checked) por el usuario, pasa el primer filtro (es decir, pasa el primer "if").
+                if (Opcion_Seleccionada.value=="Adicion"){  //Cuando pasa el primer filtro, el sistema entra a comparar su valor. Si su valor concide con algún "if", el sistema ejecutara la función dentro de ése "if". 
+                Resultado_Adicion=A+B
+                document.getElementById("Resultado_Operaciones").textContent=Resultado_Adicion //Finalmente, se ejecuta la operación y el sistema procede a mandar el mensaje en texto. 
+            }
+            if (Opcion_Seleccionada.value=="Sustraccion"){
+                Resultado_Sustraccion=A-B
+                document.getElementById("Resultado_Operaciones").textContent=Resultado_Sustraccion
+            }
+            if (Opcion_Seleccionada.value=="Multiplicacion"){
+                Resultado_Multiplicacion=A*B
+                document.getElementById("Resultado_Operaciones").textContent=Resultado_Multiplicacion
+            }
+
+            if (Opcion_Seleccionada.value=="Division"){
+                if(A==0 || B==0){
+                    alert("No se puede dividir con 0 Por favor elija otro número.")
+                }
+                Resultado_Division_1=A/B
+                document.getElementById("Resultado_Operaciones").textContent=Resultado_Division_1
+            }
+        }
+    })
+})
 
 
 
@@ -583,6 +762,7 @@ de esas 2 entradas (inputs).
         }
     }
 });
+
 
 Radios.forEach(Radio => {
     Radio.addEventListener("change", () => {
