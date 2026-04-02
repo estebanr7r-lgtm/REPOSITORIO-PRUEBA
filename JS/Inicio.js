@@ -606,6 +606,7 @@ function AlReves(){
     Arreglo_Reverso=[...Arreglo_S_Modificar].reverse()
     
     document.getElementById("Sin_modicicaciones").textContent="Arreglo Inicial :"+Arreglo_S_Modificar
+    document.getElementById("A_algoritmo").textContent="Arreglo Algorítmicamente Invertido: "+Arreglo_Algorit
     document.getElementById("A_Reverse").textContent="Arreglo Reverso: "+Arreglo_Reverso
 }
 
@@ -613,28 +614,71 @@ function AlReves(){
 
 
 
-/* 
+/*
+Éste ejercicio va a ser algo difícil de describir, pero voy a hacer mi mejor intento.
+
+Empecemos por el hecho de que, sobre la marcha...me dí cuenta que, no tenía claro para qué
+era "querySelector" y "querySelectorAll". 
+Sé que el profe los usó, pero ya no me acordaba para qué era que se usaban.
+Algo similar ocurrió con addEventListener.
+
+querySelectorAll
+Se usa cuando queremos encontrar varios elementos de HTML con el mismo 
+tipo de clase, nombre o tipo de etiqueta (inputs, parrafos, o labels, por ejemplo).
+
+querySelector
+Lo utilizamos para buscar algo más en específico.
+Es decir, si "querySelectorAll" es para buscar varias cosas,
+ésta herramienta solo sirve para buscar una cosa en específico.
+
+addEventListener
+Se utiliza para cuando necesitamos que el sistema reaccione ante cierta situación
+provocada por el usuario; puede ser un click, un cambio, el cursor sobre una acción,
+o cosas similares.
+
+Aquí viene lo interesante; cuando estaba realizando éste código,
+estaba tratando de realizar una "function" que 
+iba a operar cuando el usuario presionara un botón. 
+El problema: cuando dejé la "function"
+y el "addEventListener", el sistema tenía que ejecutar dos cosas por la misma acción:
+la función ejecutada por el botón, y la reacción del "addEventListener".
+Y éso causaba que, como usuario, tuviera que hacer doble click sobre el botón para que porfin se
+ejecutara el addEventListener. 
+Por ésa razón, sólo deje el "addEventListener";
+porque el sistema podía operar directamente sin depender de una función llamada por el botón.
+
+Ahora, voy a explicar un poco más la teoría interna.
+
+Lo que le indicamos al sistema por medio de la función "Opciones.forEach", 
+es que debía leer cada uno de los <input type radios> que estaban capturados en la variable
+"Opciones", donde cada uno de esos <input type radios> se iba a llamar
+"Opcion_Seleccionada". Y si encontraba que alguno de éstos <input type radios>
+había sido seleccionado por el usuario (es decir, "checked"), 
+entonces, procedía a comparar su valor para así llegar a proceder con la ecuación correspondiente. 
+
+Para que éste texto no sea tan largo, voy a aclarar brevemente qué hace cada variable a continuación.
 */
-function Operaciones_Matematicas(){
-    const Opciones=document.querySelectorAll('input[name="operacion"]')
-    const Boton_operaciones=document.querySelector('button[name="Importante"]')
-        Boton_operaciones.addEventListener("click", () => {
-        
-        Opciones.forEach(Opcion_Seleccionada  => {
-            const A =parseInt(document.getElementById("Ingreso_Numero_1").value)
-            const B =parseInt(document.getElementById("Ingreso_Numero_2").value)
+const Opciones=document.querySelectorAll('input[name="operacion"]') //Capturamos todos los <input type radios>.
+const Boton_operaciones=document.querySelector('button[name="Importante"]') //Capturamos al botón por medio del nombre (también se puede por el id si se quiere).
 
-            if(Opcion_Seleccionada.checked){
-                if (Opcion_Seleccionada.value=="Adicion"){
+Boton_operaciones.addEventListener("click", () => {  //Le decimos al sistema que esté atento cuando el usuario de click al botón. De ser así, procede a ejecutar lo tabulado en la misma función.  
+
+    Opciones.forEach(Opcion_Seleccionada  => {  //El sistema leerá cada <input type radio> capturado en "Opciones", donde cada <input type radio> va a ser un elemento llamado "Opcion_Seleccionada".
+
+
+        const A =parseInt(document.getElementById("Ingreso_Numero_1").value) //Traemos el primer número ingresado por el usuario y lo nombramos en JS.
+        const B =parseInt(document.getElementById("Ingreso_Numero_2").value) //Traemos el segundo número ingresado por el usuario y lo nombramos en JS también.
+
+
+            if(Opcion_Seleccionada.checked){ //Si algún <input type radio> fue seleccionado (.checked) por el usuario, pasa el primer filtro (es decir, pasa el primer "if").
+                if (Opcion_Seleccionada.value=="Adicion"){  //Cuando pasa el primer filtro, el sistema entra a comparar su valor. Si su valor concide con algún "if", el sistema ejecutara la función dentro de ése "if". 
                 Resultado_Adicion=A+B
-                document.getElementById("Resultado_Operaciones").textContent=Resultado_Adicion
+                document.getElementById("Resultado_Operaciones").textContent=Resultado_Adicion //Finalmente, se ejecuta la operación y el sistema procede a mandar el mensaje en texto. 
             }
-
             if (Opcion_Seleccionada.value=="Sustraccion"){
                 Resultado_Sustraccion=A-B
                 document.getElementById("Resultado_Operaciones").textContent=Resultado_Sustraccion
             }
-
             if (Opcion_Seleccionada.value=="Multiplicacion"){
                 Resultado_Multiplicacion=A*B
                 document.getElementById("Resultado_Operaciones").textContent=Resultado_Multiplicacion
@@ -647,11 +691,9 @@ function Operaciones_Matematicas(){
                 Resultado_Division_1=A/B
                 document.getElementById("Resultado_Operaciones").textContent=Resultado_Division_1
             }
-            
-            }
-        })
-    });
-}
+        }
+    })
+})
 
 
 
